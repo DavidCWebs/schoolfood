@@ -1,7 +1,7 @@
 <article <?php post_class(); ?>>
   <div class="row page-header">
           <div class="col-md-4">
-             <a href="<?php the_permalink(); ?>"><?php carawebs_featured_image(thumbnail); ?></a>
+             <a href="<?php the_permalink(); ?>"><?php carawebs_featured_image('thumbnail', 'img-circle'); ?></a>
              
           </div>
           <div class="col-md-8">

@@ -83,10 +83,11 @@
 </div>
 <!--Section Four ----------------------------------------------------
 -->
-<div id="gs-section-four" class="greenback top-xl-pad bottom-xl-pad row">
+<div id="gs-section-four" class="blueback top-xl-pad bottom-xl-pad row">
     <div class="container clearfix">
         <div class="col-md-6">
             <?php carawebs_getstarted_image4(); ?>
+            <?php carawebs_custom_image('section_three_image', 'img-circle', 'large'); ?>
         </div>
         <div class="col-md-5 col-md-offset-1">
             <h2></a><?php the_field('section_four_heading'); ?></h2>

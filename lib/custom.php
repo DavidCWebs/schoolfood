@@ -47,6 +47,39 @@ function carawebs_main_image() {
 
 /*==============================================================================*/
 
+/* About Page Images */
+
+function carawebs_about_section_one_image(){
+
+    $image = get_field('section_one_image');
+ 
+    if( !empty($image) ){
+ 
+	// vars
+	$url = $image['url'];
+	$title = $image['title'];
+	$alt = $image['alt'];
+	$caption = $image['caption'];
+ 
+	// thumbnail
+	$size = 'thumbnail';
+	$thumb = $image['sizes'][ $size ];
+	$width = $image['sizes'][ $size . '-width' ];
+	$height = $image['sizes'][ $size . '-height' ];
+    
+            
+            ?>
+            <img class="img-responsive" src="<?php echo $thumb; ?>" 
+            alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" title="<?php echo $title; ?>" />
+            
+            <?php
+    }
+    else {
+    return;
+    }
+}
+
+
 /* Front Page Images */
 
 function carawebs_section_one_image(){
@@ -321,7 +354,9 @@ function carawebs_getstarted_image4() {
 * @return string        img -> width | height | src | class | alt | title
 * 
 */
-function carawebs_featured_image( $size = 'full', $class = 'img-responsive img-circle' ) {
+function carawebs_featured_image( $size = 'full', $firstclass ) {
+ 
+     $class = $firstclass . ' img-responsive'; // Ensure that all images are responsive
  
     global $post;
  
@@ -386,3 +421,23 @@ function add_force_crop() {
 add_action('after_setup_theme','add_force_crop');
 	
 //add_action ('add_attachment','add_force_crop');
+
+/*========================================
+
+/* Carawebs Custom Image for ACF image embed
+
+=========================================*/
+
+function carawebs_custom_image( $field, $class, $size = 'thumbnail' ) {
+
+$image = get_field($field);
+    
+    $thumb = $image['sizes'][ $size ];
+
+    if( !empty($image) ){ ?>
+
+        <img class="img-responsive <?php echo $class; ?>" src="<?php echo $thumb;/*$image['url'];*/ ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['title']; ?>" />
+
+    <?php }
+
+}

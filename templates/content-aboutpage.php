@@ -65,55 +65,13 @@
 -->
 <div id="about-section-three" class="top-xl-pad bottom-xl-pad row">
     <div class="container clearfix">
-        <div class="col-sm-6 column">
+        <div class="col-sm-10">
             <h2><?php the_field('section_three_heading'); ?></h2>
             <div class="emphasis-text">
                 <?php the_field('section_three_text'); ?>
             </div>
         </div>  
-        <div class="col-sm-6">
-            <h2>Latest From Our Blog</h2>
-            
-            <?php
-            // WP_Query arguments
-            $args = array (
-                'post_type'              => 'post',
-                'posts_per_page'         => '3',
-            );
-
-            // The Query
-            $latestquery = new WP_Query( $args );
-
-            // The Loop
-            if ( $latestquery->have_posts() ) {
-                while ( $latestquery->have_posts() ) {
-                    $latestquery->the_post();
-                    // do something
-                    ?>
-                    <div class="row page-header">
-                        <div class="col-xs-4"><?php 
-                            if ( has_post_thumbnail()) : ?>
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                            <?php the_post_thumbnail('thumbnail', array('class' => 'img-circle img-responsive')); ?></a>
-                            <?php endif; ?>
-                        </div>
-                        <div class="col-xs-8">
-                        <h4><?php echo the_title(); ?></h4>
-                        <?php echo the_excerpt(); ?></div>
-                    </div>
-                    <?php
-                    
-                }
-            } else {
-                // no posts found
-            }
-
-            // Restore original Post Data
-            wp_reset_postdata();
-            ?>
-            
-            <?php carawebs_section_three_image(); ?>
-        </div> 
+         
     </div>
 </div>
 

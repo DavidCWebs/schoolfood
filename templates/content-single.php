@@ -1,11 +1,14 @@
-<?php while (have_posts()) : the_post(); ?>
+<?php while (have_posts()) : the_post(); 
+  
+  //Get Post ID for featured image in sidebar
+  //$post_id = get_the_ID(); 
+  ?>
   <article <?php post_class(); ?>>
     <header>
       <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="entry-content">
-      <?php carawebs_featured_image(); ?>
       <?php the_content(); ?>
     </div>
     <!--<footer>

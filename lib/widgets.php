@@ -13,6 +13,16 @@ function roots_widgets_init() {
     'after_title'   => '</h3>',
   ));
   
+  // Sidebars
+  register_sidebar(array(
+    'name'          => __('Blog Page', 'roots'),
+    'id'            => 'sidebar-secondary',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>',
+  ));
+  
 // Register Left Footer Widget Area
   register_sidebar(array(
     'name'          => __('Footer Left', 'roots'),
