@@ -383,6 +383,10 @@ function carawebs_featured_image( $size = 'full', $firstclass ) {
     
     // Get the title attribute for the featured image
     $title = get_the_title($attachment_id);
+    
+    // Get the Image Caption
+    //$caption = $attachment_id->post_excerpt;
+    $caption = get_post($attachment_id)->post_excerpt;
  
     $default_attr = array(
         'class' => $class,
@@ -394,6 +398,7 @@ function carawebs_featured_image( $size = 'full', $firstclass ) {
     //the_post_thumbnail( $size, $default_attr );
     
     the_post_thumbnail( $size, $default_attr );
+    echo $caption;
  
     }
 }

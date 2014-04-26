@@ -2,7 +2,8 @@
 if ( is_home() ) :    
   dynamic_sidebar('sidebar-secondary'); 
 else:
-  carawebs_featured_image('thumbnail', 'img-circle'); 
+  ?><div class="bottom-pad"><?php get_search_form(); ?></div><?php
+  carawebs_featured_image('thumbnail'); 
   dynamic_sidebar('sidebar-primary');
 endif;  
 ?>

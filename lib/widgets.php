@@ -262,7 +262,9 @@ class carawebs_phone_widget extends WP_Widget {
                   <?php if ($title) {
                           echo $before_title, $title, $after_title;
                         } ?>
-                    <p><?php echo $introtext; ?><br>   
+                  <?php if ($introtext) {
+                    ?><p><?php echo $introtext; ?><br><?php
+                        } ?>  
                     <div class="desktop-phone"><i class="glyphicon glyphicon-phone-alt"></i>&nbsp;&nbsp;<?php echo $telnumber; ?></div>
                     <div class="mobile-phone">
                       <a href="tel:<?php echo $telnumber; ?>" class="btn btn-default btn-primary">
@@ -309,3 +311,90 @@ class carawebs_phone_widget extends WP_Widget {
  
 } // end class example_widget
 add_action('widgets_init', create_function('', 'return register_widget("carawebs_phone_widget");'));
+
+
+/*=======================================================================================
+
+/* MODIFIED Navigation Menu widget class
+
+*========================================================================================*/
+ 
+class Carawebs_Nav_Menu_Widget extends WP_Widget {
+
+	/*function __construct() {
+		$widget_ops = array( 'description' => __('Add a custom menu to your sidebar.') );
+		parent::__construct( 'nav_menu', __('Carawebs Custom Menu'), $widget_ops );
+	}*/
+	
+	//constructor -- name this the same as the class above 
+    function Carawebs_Nav_Menu_Widget() {
+        parent::WP_Widget(false, $name = 'Carawebs Custom Menu');	
+    }
+
+	function widget($args, $instance) {
+		// Get menu
+		$nav_menu = ! empty( $instance['nav_menu'] ) ? wp_get_nav_menu_object( $instance['nav_menu'] ) : false;
+
+		if ( !$nav_menu )
+			return;
+
+		// This filter is documented in wp-includes/default-widgets.php
+		$instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+
+		echo $args['before_widget'];
+
+		if ( !empty($instance['title']) )
+			echo $args['before_title'] . $instance['title'] . $args['after_title'];
+
+		wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'menu_class'=> 'i-ul', 'before'=>'<i class="icon-star-sharp i-li blue"></i>' ));
+
+		echo $args['after_widget'];
+	}
+
+	function update( $new_instance, $old_instance ) {
+		$instance['title'] = strip_tags( stripslashes($new_instance['title']) );
+		$instance['nav_menu'] = (int) $new_instance['nav_menu'];
+		return $instance;
+	}
+
+	function form( $instance ) {
+		$title = isset( $instance['title'] ) ? $instance['title'] : '';
+		$nav_menu = isset( $instance['nav_menu'] ) ? $instance['nav_menu'] : '';
+
+		// Get menus
+		$menus = wp_get_nav_menus( array( 'orderby' => 'name' ) );
+
+		// If no menus exists, direct the user to go and create some.
+		if ( !$menus ) {
+			echo '<p>'. sprintf( __('No menus have been created yet. <a href="%s">Create some</a>.'), admin_url('nav-menus.php') ) .'</p>';
+			return;
+		}
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:') ?></label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $title; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('nav_menu'); ?>"><?php _e('Select Menu:'); ?></label>
+			<select id="<?php echo $this->get_field_id('nav_menu'); ?>" name="<?php echo $this->get_field_name('nav_menu'); ?>">
+		<?php
+			foreach ( $menus as $menu ) {
+				echo '<option value="' . $menu->term_id . '"'
+					. selected( $nav_menu, $menu->term_id, false )
+					. '>'. $menu->name . '</option>';
+			}
+		?>
+			</select>
+		</p>
+		<?php
+	}
+}
+
+add_action('widgets_init', create_function('', 'return register_widget("Carawebs_Nav_Menu_Widget");'));
+
+// Unregister the default nav menu widget
+function remove_WP_Nav_widget() {
+	unregister_widget('WP_Nav_Menu_Widget');
+}
+
+add_action( 'widgets_init', 'remove_WP_Nav_widget' );
