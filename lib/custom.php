@@ -385,7 +385,6 @@ function carawebs_featured_image( $size = 'full', $firstclass ) {
     $title = get_the_title($attachment_id);
     
     // Get the Image Caption
-    //$caption = $attachment_id->post_excerpt;
     $caption = get_post($attachment_id)->post_excerpt;
  
     $default_attr = array(
