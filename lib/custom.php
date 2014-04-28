@@ -507,3 +507,11 @@ $image = get_field($field);
     <?php }
 
 }
+
+
+add_filter( 'pre_get_posts', 'modify_schools_query' );
+
+function modify_schools_query( $wp_query ) {
+    if( $wp_query->query_vars['post_type'] != 'schools' ) return;
+    $wp_query->query_vars['posts_per_page'] = 1;
+}

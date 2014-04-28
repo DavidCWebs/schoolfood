@@ -10,6 +10,7 @@
     </header>
     <div class="row">
         <div class="entry-content col-md-12">
+          TEST
           <?php the_content(); ?>
         </div>
     </div>

@@ -57,7 +57,9 @@ function roots_display_sidebar() {
       'is_404',
       'is_front_page',
       array('is_page', 70),
-      array('is_page', 69)
+      array('is_page', 69),
+      array('is_singular', 'school'),
+      array('is_archive', 'schools')
     ),
     /**
      * Page template checks (via is_page_template())

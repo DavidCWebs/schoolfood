@@ -321,15 +321,16 @@ add_action('widgets_init', create_function('', 'return register_widget("carawebs
  
 class Carawebs_Nav_Menu_Widget extends WP_Widget {
 
-	/*function __construct() {
+	function __construct() {
 		$widget_ops = array( 'description' => __('Add a custom menu to your sidebar.') );
 		parent::__construct( 'nav_menu', __('Carawebs Custom Menu'), $widget_ops );
-	}*/
+	}
+	/*
 	
 	//constructor -- name this the same as the class above 
     function Carawebs_Nav_Menu_Widget() {
         parent::WP_Widget(false, $name = 'Carawebs Custom Menu');	
-    }
+    }*/
 
 	function widget($args, $instance) {
 		// Get menu
