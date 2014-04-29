@@ -524,7 +524,7 @@ function modify_schools_query( $wp_query ) {
 
 function limit_posts_per_archive_page() {
 	if ( is_archive('schools') )
-		$limit = 2;
+		$limit = 12;
 	elseif ( is_search() )
 		$limit = 10;
 	else

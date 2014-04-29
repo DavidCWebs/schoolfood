@@ -1,5 +1,5 @@
 <?php get_template_part('templates/page', 'header'); ?>
-
+<h3>Intro to schools here - beneath the header</h3>
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'roots'); ?>
@@ -7,10 +7,14 @@
   <?php get_search_form(); ?>
 <?php endif; ?>
 
-<!--<?php //while (have_posts()) : the_post(); ?>-->
-<?php while (have_posts() ) : the_post(); ?>
-  <?php get_template_part('templates/content', get_post_format()); ?>
-<?php endwhile; ?>
+<div id="grid">
+    <?php while (have_posts() ) : the_post(); ?>
+    <div class="brick">
+    <?php get_template_part('templates/content', 'school-teaser'); ?>
+    </div>
+    <?php endwhile; ?>
+    <div class="gridbreak"></div>
+</div>
 
 <?php if ($wp_query->max_num_pages > 1) : ?>
   <nav class="post-nav">
