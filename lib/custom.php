@@ -533,3 +533,32 @@ function limit_posts_per_archive_page() {
 	set_query_var('posts_per_archive_page', $limit);
 }
 add_filter('pre_get_posts', 'limit_posts_per_archive_page');
+
+
+
+/*==============================================================
+
+Menu adjustment for CPTs 
+
+===============================================================*/
+
+
+add_filter( 'nav_menu_css_class', 'namespace_menu_classes', 10, 2 );
+
+function namespace_menu_classes( $classes , $item ){
+	
+	if ( get_post_type() == 'school' || is_archive( 'schools' )	) 
+	
+	{
+		
+		// remove that unwanted classes if it's found
+		$classes = str_replace( 'active', '', $classes );
+		
+		// find the url you want and add the class you want
+		if ( is_archive( 'schools' ) ) {
+			$classes = str_replace( 'menu-our-schools', 'active', $classes );
+			//remove_filter( 'nav_menu_css_class', 'namespace_menu_classes', 10, 2 );
+		}
+	}
+	return $classes;
+}
