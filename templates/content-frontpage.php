@@ -15,7 +15,11 @@
                 <div class="col-sm-4"><!-- was col-md-4 column -->
                   <div class="overlay-container col-centered">
                      <?php
-                     // The first circle
+                     
+                      /*----------------------------------------------------
+                      The first circle
+                      ---------------------------------------------------*/
+                      
                      $circle_1_heading = get_field('circle_1_heading');
                         
                      // If there's an heading, build it
@@ -26,7 +30,7 @@
                      <?php
                      }  else { // If not just build the default text
                           
-                        ?><div class= "circle red"><span>Wow</span></div>
+                        ?><div class= "circle red"><span>Delicious Food</span></div>
                         
                         <?php
                      } 
@@ -34,9 +38,7 @@
                      ?>
                         <div class="overlay-wrapper circle-redback">
                         <div class="overlay-excerpt">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, 
-                        eget consequat magna felis a magna. Even more information - difficult in a circular block.
+                        <p>We provide delicious food to schools across Ireland. We can revolutionise the food service in your school!
                         <br><a href="">Click here</a> for more info.</p>
                         </div>
                         </div><!-- /.overlay-wrapper -->
@@ -46,7 +48,11 @@
                     <div class="overlay-container col-centered">
                     
                     <?php
-                     // The first circle
+                     
+                     /*------------------------------------------------------------
+                      The second circle
+                      ------------------------------------------------------------*/
+                      
                      $circle_2_heading = get_field('circle_2_heading');
                         
                      // If there's an heading, build it
@@ -65,9 +71,7 @@
                      ?>
                          <div class="overlay-wrapper circle-blueback">
                             <div class="overlay-excerpt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, 
-                            eget consequat magna felis a magna. Even more information - difficult in a circular block.
+                            <p>We offer a zero-hassle solution for schools - we set up and run the canteen...
                             <br><a href="">Click here</a> for more info.</p>
                             </div>
                          </div><!-- /.overlay-wrapper -->   
@@ -76,7 +80,11 @@
                 <div class="col-sm-4">
                     <div class="overlay-container col-centered">
                     <?php
-                     // The first circle
+                     
+                     /*----------------------------------------------------------------
+                     The Third circle
+                     -----------------------------------------------------------------*/
+                     
                      $circle_3_heading = get_field('circle_3_heading');
                         
                      // If there's an heading, build it
@@ -87,7 +95,7 @@
                      <?php
                      }  else { // If not just build the default text
                           
-                        ?><div class= "circle green"><span>Roundness</span></div>
+                        ?><div class= "circle green"><span>Health</span></div>
                         
                         <?php
                      } 
@@ -95,9 +103,7 @@
                      ?>
                      <div class="overlay-wrapper circle-greenback">
                             <div class="overlay-excerpt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, 
-                            eget consequat magna felis a magna. Even more information - difficult in a circular block.
+                            <p>We're strongly committed to ensuring that children in Irish schools have access to healthy, nutritious meals.
                             <br><a href="">Click here</a> for more info.</p>
                             </div>
                      </div><!-- /.overlay-wrapper --> 
@@ -105,7 +111,7 @@
                     </div><!-- /.overlay-container -->
                 </div>
         </div>
-        <!----- Nav Circles at samller sizes ----->
+        <!----- Nav Circles at samller sizes ---
         <div id="circlenav">
             <div id="grid">
                 <div class="brick">
