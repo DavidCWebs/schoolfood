@@ -543,11 +543,11 @@ Menu adjustment for CPTs - stops "Blog" page being highlighed by means of active
 ===============================================================*/
 
 
-add_filter( 'nav_menu_css_class', 'namespace_menu_classes', 10, 2 );
+add_filter( 'nav_menu_css_class', 'carawebs_menu_classes', 10, 2 );
 
-function namespace_menu_classes( $classes , $item ){
+function carawebs_menu_classes( $classes , $item ){
 	
-	if ( get_post_type() == 'school' || is_archive( 'schools' )	) 
+	if ( is_singular( 'schools') || is_archive( 'schools' )	) 
 	
 	{
 		
@@ -555,7 +555,7 @@ function namespace_menu_classes( $classes , $item ){
 		$classes = str_replace( 'active', '', $classes );
 		
 		// find the url you want and add the class you want
-		if ( is_archive( 'schools' ) ) {
+		if ( is_archive( 'schools' ) || get_post_type() == 'schools' ) {
 			$classes = str_replace( 'menu-our-schools', 'menu-our-schools active', $classes );
 			//remove_filter( 'nav_menu_css_class', 'namespace_menu_classes', 10, 2 );
 		}
