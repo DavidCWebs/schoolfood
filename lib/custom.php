@@ -556,7 +556,7 @@ function namespace_menu_classes( $classes , $item ){
 		
 		// find the url you want and add the class you want
 		if ( is_archive( 'schools' ) ) {
-			$classes = str_replace( 'menu-our-schools', 'active', $classes );
+			$classes = str_replace( 'menu-our-schools', 'menu-our-schools active', $classes );
 			//remove_filter( 'nav_menu_css_class', 'namespace_menu_classes', 10, 2 );
 		}
 	}
