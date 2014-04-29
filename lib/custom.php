@@ -508,10 +508,28 @@ $image = get_field($field);
 
 }
 
+/*==========================================
 
-add_filter( 'pre_get_posts', 'modify_schools_query' );
+/* Query Mods
+
+===========================================*/
+
+/*add_filter( 'pre_get_posts', 'modify_schools_query' );
 
 function modify_schools_query( $wp_query ) {
     if( $wp_query->query_vars['post_type'] != 'schools' ) return;
     $wp_query->query_vars['posts_per_page'] = 1;
+}*/
+
+
+function limit_posts_per_archive_page() {
+	if ( is_archive('schools') )
+		$limit = 2;
+	elseif ( is_search() )
+		$limit = 10;
+	else
+		$limit = get_option('posts_per_page');
+
+	set_query_var('posts_per_archive_page', $limit);
 }
+add_filter('pre_get_posts', 'limit_posts_per_archive_page');

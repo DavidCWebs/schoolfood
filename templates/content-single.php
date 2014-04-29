@@ -9,7 +9,7 @@
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="row">
-        <div class="entry-content col-md-12">
+        <div class="entry-content col-md-10">
           <?php the_content(); ?>
         </div>
     </div>
