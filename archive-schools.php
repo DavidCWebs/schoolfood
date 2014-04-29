@@ -6,14 +6,15 @@
   </div>
   <?php get_search_form(); ?>
 <?php endif; ?>
-
-<div id="grid">
-    <?php while (have_posts() ) : the_post(); ?>
-    <div class="brick">
-    <?php get_template_part('templates/content', 'school-teaser'); ?>
+<div class="row">
+    <div id="grid">
+        <?php while (have_posts() ) : the_post(); ?>
+        <div class="brick">
+        <?php get_template_part('templates/content', 'school-teaser'); ?>
+        </div>
+        <?php endwhile; ?>
+        <div class="gridbreak"></div>
     </div>
-    <?php endwhile; ?>
-    <div class="gridbreak"></div>
 </div>
 
 <?php if ($wp_query->max_num_pages > 1) : ?>
