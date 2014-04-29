@@ -5,12 +5,11 @@
   ?>
   <article <?php post_class(); ?>>
     <header>
-      <h1 class="entry-title"><?php the_title(); ?> XXX TEST</h1>
+      <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="row">
         <div class="entry-content col-md-12">
-          TEST
           <?php the_content(); ?>
         </div>
     </div>
