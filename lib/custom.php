@@ -538,7 +538,7 @@ add_filter('pre_get_posts', 'limit_posts_per_archive_page');
 
 /*==============================================================
 
-Menu adjustment for CPTs 
+Menu adjustment for CPTs - stops "Blog" page being highlighed by means of active class
 
 ===============================================================*/
 
