@@ -16,5 +16,6 @@ require_once locate_template('/lib/comments.php');        // Custom comments mod
 require_once locate_template('/lib/relative-urls.php');   // Root relative URLs
 require_once locate_template('/lib/widgets.php');         // Sidebars and widgets
 require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
-include_once('advanced-custom-fields/acf.php' );          // Set up ACF 
+include_once('advanced-custom-fields/acf.php' );          // Set up ACF
+include_once('acf-repeater/acf-repeater.php' );           // Set up ACF Repeater Fields
 require_once locate_template('/lib/custom.php');          // Custom functions
