@@ -551,7 +551,7 @@ function carawebs_menu_classes( $classes , $item ){
 	
 	{
 		
-		// remove that unwanted classes if it's found
+		// remove unwanted active class if it's found
 		$classes = str_replace( 'active', '', $classes );
 		
 		// find the url you want and add the class you want
@@ -562,3 +562,11 @@ function carawebs_menu_classes( $classes , $item ){
 	}
 	return $classes;
 }
+
+/*-------------------
+
+ACF in theme directory
+
+-------------------*/
+//include_once('advanced-custom-fields/acf.php');
+//include_once('acf-repeater/acf.php');
