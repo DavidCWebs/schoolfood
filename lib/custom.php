@@ -3,8 +3,6 @@
  * Custom functions
  */
 
-/* Add post images */
-
 function carawebs_main_image() {
 
         $image = get_field('main_image');
@@ -79,112 +77,11 @@ function carawebs_about_section_one_image(){
     }
 }
 
+/*------------------------------------------------------------------------------
 
-/* Front Page Images */
+Testimonials Slider
 
-function carawebs_section_one_image(){
-
-    $image = get_field('section_one_image');
- 
-    if( !empty($image) ){
- 
-	// vars
-	$url = $image['url'];
-	$title = $image['title'];
-	$alt = $image['alt'];
-	$caption = $image['caption'];
- 
-	// thumbnail
-	$size = 'thumbnail';
-	$thumb = $image['sizes'][ $size ];
-	$width = $image['sizes'][ $size . '-width' ];
-	$height = $image['sizes'][ $size . '-height' ];
-    
-            
-            ?>
-            <img class="img-responsive img-circle" src="<?php echo $thumb; ?>" 
-            alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" title="<?php echo $title; ?>" />
-            
-            <?php
-    }
-    else {
-    return;
-    }
-}
-
-
-/* Front Page Images */
-
-function carawebs_section_two_image(){
-
-    $image = get_field('section_two_image');
- 
-    if( !empty($image) ){
- 
-	// vars
-	$url = $image['url'];
-	$title = $image['title'];
-	$alt = $image['alt'];
-	$caption = $image['caption'];
- 
-	// thumbnail
-	$size = 'thumbnail';
-	$thumb = $image['sizes'][ $size ];
-	$width = $image['sizes'][ $size . '-width' ];
-	$height = $image['sizes'][ $size . '-height' ];
-    
-            
-            
-            
-            ?>
-            <img class="img-responsive img-circle" src="<?php echo $thumb; ?>" 
-            alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" title="<?php echo $title; ?>" />
-            
-            <?php
-    }
-    else {
-    return;
-    }
-}
-
-
-/* Front Page Images */
-
-function carawebs_section_three_image(){
-
-    $image = get_field('section_three_image');
- 
-    if( !empty($image) ){
- 
-	// vars
-	$url = $image['url'];
-	$title = $image['title'];
-	$alt = $image['alt'];
-	$caption = $image['caption'];
- 
-	// thumbnail
-	$size = 'thumbnail';
-	$thumb = $image['sizes'][ $size ];
-	$width = $image['sizes'][ $size . '-width' ];
-	$height = $image['sizes'][ $size . '-height' ];
-    
-            
-            
-            
-            ?>
-            <img class="img-responsive img-circle circle-shadow" src="<?php echo $thumb; ?>" 
-            alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" title="<?php echo $title; ?>" />
-            
-            <?php
-    }
-    else {
-    return;
-    }
-}
-
-
-/* Testimonials Slider */
-
+------------------------------------------------------------------------------*/
 
 function carawebs_testimonials_slider() {
  	
@@ -194,29 +91,30 @@ function carawebs_testimonials_slider() {
  if(!empty($testimonials) ){  
     ?>
     <div class="row">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel"><!-- data-ride="carousel" causes auto play -->
-          <ol class="carousel-indicators">
+        <!-- data-ride="carousel" causes auto play class="slide" causes slide-->    
+        <div id="myCarousel" class="carousel fade" data-ride="carousel">
+          <!--<ol class="carousel-indicators">
             <?php foreach( $testimonials as $testimonial ){ 
             ?><li data-target="#myCarousel" data-slide-to="<?php echo $number++; ?>"></li><?php
             } ?>
-          </ol>
-
-          <!-- Carousel items -->
-          <div class="carousel-inner">
-            <?php while( has_sub_field('testimonials') ){ ?>
-            <div class="item">
-              <img src="<?php the_sub_field('image'); ?>" />
-              <div class="carousel-caption">
-                <h4><?php the_sub_field('person'); ?></h4>
-                <p><?php the_sub_field('testimonial_text'); ?></p>
+          </ol>-->
+            <!-- Carousel items -->
+              <div class="carousel-inner">
+                <?php while( has_sub_field('testimonials') ){ ?>
+                <div class="item">
+                  <img src="<?php the_sub_field('image'); ?>" />
+                  <div class="carousel-caption">
+                    <h4><?php the_sub_field('person'); ?></h4>
+                    <p class="lead"><i class="icon-quote-left"></i>&nbsp;<?php the_sub_field('testimonial_text'); ?>&nbsp;<i class="icon-quote-right"></i></p>
+                  </div>
+                </div>
+                <?php } ?>
               </div>
-            </div>
-            <?php } ?>
-          </div>
-
           <!-- Carousel nav -->
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span></a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span></a>
         </div>
     </div><!-- /.row -->
     <?php } else {

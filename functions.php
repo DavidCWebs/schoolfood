@@ -17,5 +17,9 @@ require_once locate_template('/lib/relative-urls.php');   // Root relative URLs
 require_once locate_template('/lib/widgets.php');         // Sidebars and widgets
 require_once locate_template('/lib/scripts.php');         // Scripts and stylesheets
 include_once('advanced-custom-fields/acf.php' );          // Set up ACF
+<<<<<<< HEAD
 include_once('acf-repeater/acf-repeater.php' );           // Set up ACF Repeater Fields
+=======
+include_once('acf-repeater/acf-repeater.php' );          // Set up ACF 
+>>>>>>> b7db18b8da76401de1900c0544f5a92b588fc421
 require_once locate_template('/lib/custom.php');          // Custom functions
