@@ -714,6 +714,8 @@ overlay-excerpt a:hover {
     font-size: 22px;
 }
 
+
+
 .carousel-indicators li {
     display: inline-block;
     width: 20px;
@@ -760,22 +762,23 @@ overlay-excerpt a:hover {
 
 .carousel .item {
     width: 100%; /*slider width*/
-    max-height: 800px; /*slider height*/
+    max-height: 780px; /*slider height*/
 }
 
 .carousel-caption {
     position: absolute;
     top: 0;
+    bottom: inherit;
     left: 0;
     right: inherit;
-    width: 40%;
-    padding-left: 40px;
+    width: 50%;
+    padding: 40px;
     z-index: 10;
     color: #fff;
     background-color: rgba(0,0,0,0.5);
     text-align: left;
     text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-    height: 200px;
+    height: auto;
 }
 
 #get-started-carousel .carousel-caption {
@@ -858,6 +861,39 @@ overlay-excerpt a:hover {
             //z-index:2;
         }
     }
+}
+
+@media screen and (min-width: 768px){
+    .carousel-control .glyphicon-chevron-left,
+    .carousel-control .glyphicon-chevron-right,
+    .carousel-control .icon-prev,
+    .carousel-control .icon-next {
+        width: auto;
+        height: auto;
+        margin-top: -15px;
+        margin-left: -15px;
+        font-size: 30px;
+        padding: 10px;
+        background-color: #666;
+    }
+}
+
+.carousel-control .icon-prev,
+.carousel-control .glyphicon-chevron-left {
+left: 15px;
+}
+
+.carousel-control .icon-next,
+.carousel-control .glyphicon-chevron-right {
+right: 0;
+}
+
+.carousel-control {
+    opacity: .7;
+}
+
+.carousel-control:hover {
+    opacity: .9;
 }
 /* ==========================================================================
    Footer
