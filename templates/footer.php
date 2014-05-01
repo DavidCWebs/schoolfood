@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <?php dynamic_sidebar('sidebar-footer-right'); ?>
                 <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
-                <a href="#top" class="go-top" title="Go to the top of the page">Back to top of page</a>
+                <a href="#top" class="go-top" title="Go to the top of the page"><i class="glyphicon glyphicon-arrow-up"></i></a>
             </div>
         </div>
     </div>

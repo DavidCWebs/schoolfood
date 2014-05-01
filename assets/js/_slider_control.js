@@ -1,4 +1,5 @@
 //Slider Control
+
 jQuery(document).ready(function(){
     $(".carousel-inner .item:first").addClass("active");
     $(".carousel-indicators li:first").addClass("active");
@@ -21,6 +22,7 @@ jQuery(document).ready(function(){
     
 // Back to Top
     // Show or hide the sticky footer button
+    
 			$(window).scroll(function() {
 				if ($(this).scrollTop() > 200) {
 					$('.go-top').fadeIn(200);
@@ -30,8 +32,17 @@ jQuery(document).ready(function(){
 			});
 	
     // Animate the scroll to top
+    
 			$('.go-top').click(function(event) {
 				event.preventDefault();
 				$('html, body').animate({scrollTop: 0}, 900);
 			});
+    
+    // Make the class .sq-overlay-container clickable
+
+		$(".sq-overlay-container").click(function(){
+            window.location=$(this).find("a").attr("href");
+            return false;
+		});
+    
 });
