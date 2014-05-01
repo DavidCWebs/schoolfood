@@ -176,13 +176,13 @@
         <div id="navdiv" class="top-l-pad">
             <div id="grid">
                 <div class="brick">
-                    <a href="#food" class="btn redback custom-button">Delicious Food</a>
+                    <a href="#nav-food" class="btn redback custom-button">Delicious Food</a>
                 </div>
                 <div class="brick">
-                    <a href="#cost" class="btn blueback custom-button">Zero Hassle</a>
+                    <a href="#nav-cost" class="btn blueback custom-button">Zero Hassle</a>
                 </div>
                 <div class="brick">
-                    <a href="#healthy-choice" class="btn greenback custom-button">Healthy Options</a>
+                    <a href="#nav-healthy-choice" class="btn greenback custom-button">Healthy Options</a>
                 </div>
             </div>           
         </div>
@@ -190,7 +190,7 @@
 <div class="container"><hr></div>
 <!------------ SECTION ONE --------------->
 <section>
-   <div id="food" class="top-l-pad bottom-l-pad row">
+   <div id="nav-food" class="top-l-pad bottom-l-pad row">
     <div class="container clearfix">
         <div class="col-md-6">
             <h2><?php the_field('section_one_heading'); ?></h2>
@@ -205,7 +205,7 @@
 </section>
 <!------------ SECTION TWO ----------------------->
 <section>
-    <div id="cost" class="redback top-xl-pad bottom-xl-pad row">
+    <div id="nav-cost" class="redback top-xl-pad bottom-xl-pad row">
     <div class="clearfix">
         <div class="container">
             <div class="col-sm-5 column">
@@ -221,7 +221,7 @@
 </section>
 
 <!------------- SECTION THREE ---------------------->
-<div id="healthy-choice" class="top-xl-pad bottom-xl-pad row">
+<div id="nav-healthy-choice" class="top-xl-pad bottom-xl-pad row">
     <div class="container clearfix">
         <div class="row">
             <div class="col-md-6">
