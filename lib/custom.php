@@ -79,6 +79,38 @@ function carawebs_about_section_one_image(){
 
 /*------------------------------------------------------------------------------
 
+/* Add post images
+
+------------------------------------------------------------------------------*/
+
+function carawebs_acf_repeater_images() {
+
+if(get_field('post_images')):
+
+
+	while(has_sub_field('post_images')): 
+	
+		$attachment_id = get_sub_field('image');
+		$size = "full"; // (thumbnail, medium, large, full or custom size)
+		$image = wp_get_attachment_image_src( $attachment_id, $size );
+
+		// url = $image[0];
+		// width = $image[1];
+		// height = $image[2];
+               
+        ?><img class="post_images" src ="<?php echo $image[0]; ?>"title=""><?php
+		
+	endwhile;
+ 
+	 
+	endif; 
+}
+
+
+add_action('hook_after_post_images', 'carawebs_post_images');
+
+/*------------------------------------------------------------------------------
+
 Testimonials Slider
 
 ------------------------------------------------------------------------------*/
@@ -100,12 +132,23 @@ function carawebs_testimonials_slider() {
           </ol>-->
             <!-- Carousel items -->
               <div class="carousel-inner">
-                <?php while( has_sub_field('testimonials') ){ ?>
+                <?php while( has_sub_field('testimonials') ){
+                
+                $attachment_id = get_sub_field('image');
+		        $size = "medium"; // (thumbnail, medium, large, full or custom size)
+		        $image = wp_get_attachment_image_src( $attachment_id, $size );
+
+		        // url = $image[0];
+		        // width = $image[1];
+		        // height = $image[2];
+               
+                ?>
                 <div class="item">
-                  <img src="<?php the_sub_field('image'); ?>" />
+                  <img src="<?php echo $image[0]; ?>" />
                   <div class="carousel-caption">
                     <h4><?php the_sub_field('person'); ?></h4>
-                    <p class="lead"><i class="icon-quote-left"></i>&nbsp;<?php the_sub_field('testimonial_text'); ?>&nbsp;<i class="icon-quote-right"></i></p>
+                    <p class="lead"><i class="icon-quote-left"></i>&nbsp;
+                    <?php the_sub_field('testimonial_text'); ?>&nbsp;<i class="icon-quote-right"></i></p>
                   </div>
                 </div>
                 <?php } ?>
@@ -371,16 +414,14 @@ function carawebs_home_featured_image( $size = 'full', $firstclass ) {
 
 function add_force_crop() {
    
-   add_image_size( 'medium', 250, 225, true ); //Golden ratio y = x * 0..61805
+   //add_image_size( 'medium', 250, 225, true ); //Golden ratio y = x * 0..61805
    
-   /*
-   
-    if(false === get_option("medium_crop")) {
+   if(false === get_option("medium_crop")) {
 			add_option("medium_crop", "1");
 		} else {
 			update_option("medium_crop", "1");
     }
-    */
+    
 }
 add_action('after_setup_theme','add_force_crop');
 	
