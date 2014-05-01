@@ -86,8 +86,7 @@
 <div id="gs-section-four" class="blueback top-xl-pad bottom-xl-pad row">
     <div class="container clearfix">
         <div class="col-md-6">
-            <?php carawebs_getstarted_image4(); ?>
-            <?php carawebs_custom_image('section_three_image', 'img-circle', 'large'); ?>
+            <?php carawebs_custom_image('section_three_image', 'img-circle'); ?>
         </div>
         <div class="col-md-5 col-md-offset-1">
             <h2></a><?php the_field('section_four_heading'); ?></h2>
@@ -115,7 +114,7 @@
                      <?php
                      }  else { // If not just build the default text
                           
-                        ?><div class= "circle red"><span>Wow</span></div>
+                        ?><div class= "circle red"><span>Delicious Food</span></div>
                         
                         <?php
                      } 
@@ -146,7 +145,7 @@
                      <?php
                      }  else { // If not just build the default text
                           
-                        ?><div class= "circle blue"><span>Such</span></div>
+                        ?><div class= "circle blue"><span>Zero Hassle</span></div>
                         
                         <?php
                      } 
@@ -176,7 +175,7 @@
                      <?php
                      }  else { // If not just build the default text
                           
-                        ?><div class= "circle green"><span>Roundness</span></div>
+                        ?><div class= "circle green"><span>Healthy Options</span></div>
                         
                         <?php
                      } 

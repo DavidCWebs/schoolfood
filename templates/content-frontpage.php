@@ -3,7 +3,6 @@
         
 <!--Main Image
 ================================================================================-->
-<div class="">
         <?php  
         carawebs_main_image();        
         ?>
@@ -165,35 +164,33 @@
                 </div><!-- /.row -->
         </div><!-- /#hovercircles .container -->
         
-        <!----- Nav Circles at samller sizes ---
-        <div id="circlenav">
+        
+        
+        <!----- Nav Circles at smaller sizes --
+        -------------------------------------------
+        
+        
+        -->
+        
+        
+        <div id="navdiv" class="top-l-pad">
             <div id="grid">
                 <div class="brick">
-                    <div class="circlebrick circlered">
-                        <div class="circletext"><?php echo $circle_1_heading; ?></div>
-                    </div>
+                    <a href="#food" class="btn redback custom-button">Delicious Food</a>
                 </div>
-            
                 <div class="brick">
-                    <div class="circlebrick circleblue">
-                        <div class="circletext"><?php echo $circle_2_heading; ?></div>
-                    </div>
+                    <a href="#cost" class="btn blueback custom-button">Zero Hassle</a>
                 </div>
-            
                 <div class="brick">
-                    <div class="circlebrick circlegreen">
-                        <div class="circletext"><?php echo $circle_3_heading; ?></div>
-                    </div>
+                    <a href="#healthy-choice" class="btn greenback custom-button">Healthy Options</a>
                 </div>
-            </div>
+            </div>           
         </div>
         
-</div><!--/ circle nav -->
-
-                
 <div class="container"><hr></div>
 <!------------ SECTION ONE --------------->
-<div id="food" class="top-l-pad bottom-l-pad row">
+<section>
+   <div id="food" class="top-l-pad bottom-l-pad row">
     <div class="container clearfix">
         <div class="col-md-6">
             <h2><?php the_field('section_one_heading'); ?></h2>
@@ -204,9 +201,11 @@
         </div>   
     </div>
 
-</div>
+</div> 
+</section>
 <!------------ SECTION TWO ----------------------->
-<div id="cost" class="redback top-xl-pad bottom-xl-pad row">
+<section>
+    <div id="cost" class="redback top-xl-pad bottom-xl-pad row">
     <div class="clearfix">
         <div class="container">
             <div class="col-sm-5 column">
@@ -219,6 +218,8 @@
         </div>
     </div>
 </div>
+</section>
+
 <!------------- SECTION THREE ---------------------->
 <div id="healthy-choice" class="top-xl-pad bottom-xl-pad row">
     <div class="container clearfix">

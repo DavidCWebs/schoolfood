@@ -1,4 +1,5 @@
-<header class="banner navbar navbar-default navbar-fixed-top" role="banner"><!-- toggle fixed/static -->
+<header class="banner navbar navbar-default navbar-fixed-top" role="banner">
+  <!-- toggle fixed/static -->
   <!--<div class="container">-->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

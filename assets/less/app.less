@@ -307,6 +307,26 @@ footer .desktop-phone .glyphicon-phone-alt {
     border-radius: 0;
 }
 
+.go-top {
+	position: fixed;
+	bottom: 2em;
+	right: 2em;
+	text-decoration: none;
+	color: #000;
+	background-color: rgba(100, 100, 100, 0.3);
+	font-size: 12px;
+	display: none;
+}
+a.go-top {
+	color:#fff;
+}
+a.go-top:hover {
+	text-decoration: underline;
+}
+.go-top:hover {
+	opacity: 0.6;
+}
+
 /* =========================================================================
    Widgets
    ======================================================================*/
@@ -446,6 +466,18 @@ footer .widget_carawebs_social_widget li:hover i {
 .home h3,
 .page-template-get-started-php h3 {
     margin-top: 0;
+}
+
+.home #navdiv {
+    display: none;
+}
+
+.home #navdiv #grid .brick {
+    margin-bottom: 0;
+}
+
+.custom-button {
+    width: 100%;
 }
 
 #circlenav {
@@ -1028,7 +1060,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
         display: none;
     }
     
-    .home #circlenav {
+    .home #navdiv {
         display: block;
     }
 }
