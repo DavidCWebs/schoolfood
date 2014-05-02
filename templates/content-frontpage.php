@@ -233,17 +233,39 @@
         </div>
     </div>
 </div>
-<!--------------- TESTIMONIALS SLIDER -------------->
-<!--<div class="container"><hr></div>-- If blueback not set, add this hr and set top padding below to top-l-pad -->
-<div id="testimonials" class="blueback top-xl-pad bottom-xl-pad row">
+<!--------------- TESTIMONIALS ------------------------->
+<div id="nav-testimonials" class="blueback top-xl-pad bottom-xl-pad row">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 column">
-                <?php carawebs_testimonials_slider(); ?>
-                   <!-- <div class= "col-centered circle blueback"><span>Zero Cost<br>Zero Hassle</span></div> -->
+            <div class="col-sm-6">
+                <h2><?php the_field ('testimonials_heading'); ?></h2>
+                <div class="emphasis-text"><?php the_field('testimonials_intro_text'); ?></div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <?php carawebs_text_testimonials_loop(); ?>
             </div>
         </div>
     </div>
 </div>
+<!---------------- END TESTIMONIALS ------------------->
+<!---------------- SCHOOLS ---------------------------->
+<div id="nav-schools" class="top-l-pad bottom-xl-pad row">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 column top-l-pad">
+                <h2>Our Schools</h2>
+                <div class="emphasis-text bottom-l-pad">
+                    <p>We work closely with all our schools Donec 
+                    id elit non mi porta gravida at eget metus. 
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa </p>
+                </div>
+                <div id="grid">
+                    <?php carawebs_mini_schools_loop(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------- END SCHOOLS ------------------------>
 <?php endwhile; ?>
 </div>

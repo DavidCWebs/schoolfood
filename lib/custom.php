@@ -109,6 +109,104 @@ if(get_field('post_images')):
 
 add_action('hook_after_post_images', 'carawebs_post_images');
 
+
+/*-----------------------------------------------------------------------------
+
+Testimonials Loop
+
+-----------------------------------------------------------------------------*/
+function carawebs_text_testimonials_loop(){
+    // WP_Query arguments
+    $args = array (
+        'post_type'              => 'schools',
+        'posts_per_page'         => '3',
+        'meta_query'             => array(
+            array(
+                'key'       => 'testimonial',
+                'value'     => 'true',
+                'compare'   => '=',
+            ),
+        ),
+    );
+
+    // The Query
+    $text_testimonials_query = new WP_Query( $args );
+
+    // The Loop
+    if ( $text_testimonials_query->have_posts() ) {
+        while ( $text_testimonials_query->have_posts() ) {
+            $text_testimonials_query->the_post();
+            
+            // do something
+            $testimonial = get_field('main_testimonial');
+            if(!empty($testimonial) ){
+            ?>
+            <blockquote><i class="i-2x icon-quote-left"></i>&nbsp;&nbsp;
+                <?php echo $testimonial;?> 
+                <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>
+                <a href="#">More info</a></span></blockquote>
+            <?php
+            } else {
+            return;
+            }
+        }
+    } else {
+        // no posts found
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+}
+
+function carawebs_mini_schools_loop(){
+    // WP_Query arguments
+    $args = array (
+        'post_type'              => 'schools',
+        'posts_per_page'         => '3',
+        'meta_query'             => array(
+            array(
+                'key'       => 'testimonial',
+                'value'     => 'true',
+                'compare'   => '=',
+            ),
+        ),
+    );
+
+    // The Query
+    $mini_schools_query = new WP_Query( $args );
+
+    // The Loop
+    if ( $mini_schools_query->have_posts() ) {
+        while ( $mini_schools_query->have_posts() ) {
+            $mini_schools_query->the_post();
+            
+            // do something
+            
+            ?>
+            <div class="brick">
+               <div class="sq-overlay-container">
+                <a href="<?php the_permalink(); ?>"><?php carawebs_home_featured_image('thumbnail'); ?></a>
+                <div class="sq-overlay-wrapper"><!--allows a darkened background for legibility -->
+                    <header>
+                        <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                    </header>
+                        <div class="sq-overlay-excerpt"><!-- allows overlay to be styled & positioned -->
+                        <p><?php carawebs_custom_excerpt(); ?></p>
+                    </div>
+                </div>
+                </div>   
+            </div>
+            
+            <?php
+        }
+    } else {
+        // no posts found
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+}
+
 /*------------------------------------------------------------------------------
 
 Testimonials Slider
