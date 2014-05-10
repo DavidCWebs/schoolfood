@@ -1,13 +1,18 @@
 <?php get_template_part('templates/page', 'header'); ?>
-<h3>Intro to schools here - beneath the header</h3>
+<div class="row">
+    <div class="col-sm-12 col-md-8">
+        <h3>Intro to schools here - beneath the header</h3>
+        <?php the_field('schools_introduction', 'option'); ?>
+    </div>
+</div>
+
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'roots'); ?>
   </div>
   <?php get_search_form(); ?>
 <?php endif; ?>
-<div class="row">
-    <div id="grid">
+    <div id="grid" class="top-l-pad">
         <?php while (have_posts() ) : the_post(); ?>
         <div class="brick">
         <?php get_template_part('templates/content', 'school-teaser'); ?>
@@ -15,8 +20,6 @@
         <?php endwhile; ?>
         <div class="gridbreak"></div>
     </div>
-</div>
-
 <?php if ($wp_query->max_num_pages > 1) : ?>
   <nav class="post-nav">
     <ul class="pager">
