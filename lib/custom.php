@@ -677,7 +677,7 @@ function carawebs_school_intro() {
     } else {
             
     ?>
-    <div class="orangeback emphasis-text introblock"> 
+    <div class="blueback introblock"> 
     <?php
         // If the date is empty, do nothing
         if(empty ($date)){
