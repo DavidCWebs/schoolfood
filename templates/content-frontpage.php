@@ -236,14 +236,14 @@
 <!--------------- TESTIMONIALS ------------------------->
 <div id="nav-testimonials" class="blueback top-xl-pad bottom-xl-pad row">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
+        <div class="">
+            <div class="col-sm-12">
                 <h2><?php the_field ('testimonials_heading'); ?></h2>
                 <div class="emphasis-text"><?php the_field('testimonials_intro_text'); ?></div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            
                 <?php carawebs_text_testimonials_loop(); ?>
-            </div>
+            
         </div>
     </div>
 </div>

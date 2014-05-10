@@ -110,16 +110,17 @@ if(get_field('post_images')):
 add_action('hook_after_post_images', 'carawebs_post_images');
 
 
-/*-----------------------------------------------------------------------------
+/*===========================================================================
 
-Testimonials Loop
+Testimonials Loop for content-frontpage.php
 
------------------------------------------------------------------------------*/
+============================================================================*/
+
 function carawebs_text_testimonials_loop(){
     // WP_Query arguments
     $args = array (
         'post_type'              => 'schools',
-        'posts_per_page'         => '3',
+        'posts_per_page'         => '4',
         'meta_query'             => array(
             array(
                 'key'       => 'testimonial',
@@ -141,10 +142,13 @@ function carawebs_text_testimonials_loop(){
             $testimonial = get_field('main_testimonial');
             if(!empty($testimonial) ){
             ?>
-            <blockquote><i class="i-2x icon-quote-left"></i>&nbsp;&nbsp;
+            <div class="col-xs-12 col-md-3">
+                <blockquote><i class="i-2x icon-quote-left"></i>&nbsp;&nbsp;
                 <?php echo $testimonial;?> 
-                <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>
+                <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>, <?php
+                 the_title(); ?>
                 <a href="#">More info</a></span></blockquote>
+            </div>    
             <?php
             } else {
             return;
@@ -162,7 +166,7 @@ function carawebs_mini_schools_loop(){
     // WP_Query arguments
     $args = array (
         'post_type'              => 'schools',
-        'posts_per_page'         => '3',
+        'posts_per_page'         => '4',
         'meta_query'             => array(
             array(
                 'key'       => 'testimonial',
@@ -379,7 +383,6 @@ function carawebs_getstarted_image4() {
     <?php }
 }
 
-
 /*========================================
 
 /* Featured Image on Posts
@@ -502,8 +505,6 @@ function carawebs_home_featured_image( $size = 'full', $firstclass ) {
     }
 }
 
-
-
 /*========================================
 
 /* Force medium image crop 
@@ -558,7 +559,6 @@ function modify_schools_query( $wp_query ) {
     $wp_query->query_vars['posts_per_page'] = 1;
 }*/
 
-
 function limit_posts_per_archive_page() {
 	if ( is_archive('schools') )
 		$limit = 12;
@@ -571,14 +571,11 @@ function limit_posts_per_archive_page() {
 }
 add_filter('pre_get_posts', 'limit_posts_per_archive_page');
 
-
-
 /*==============================================================
 
 Menu adjustment for CPTs - stops "Blog" page being highlighed by means of active class
 
 ===============================================================*/
-
 
 add_filter( 'nav_menu_css_class', 'carawebs_menu_classes', 10, 2 );
 
@@ -600,16 +597,21 @@ function carawebs_menu_classes( $classes , $item ){
 	return $classes;
 }
 
-/*-------------------
+/*=================================================================
 
 ACF in theme directory
 
--------------------*/
+=================================================================*/
+
 //include_once('advanced-custom-fields/acf.php');
 //include_once('acf-repeater/acf.php');
 
 
-/* Carawebs Trim All Excerpts */
+/*=================================================================
+
+Carawebs Trim All Excerpts
+
+==================================================================*/
 
 function carawebs_trim_all_excerpt($text ) {
 // Creates an excerpt if needed; and shortens the manual excerpt as well
@@ -649,4 +651,93 @@ function carawebs_custom_excerpt() {
 	</div>
 	<?php
 
+}
+
+/*=========================================================================
+
+Add an Intro Block for Schools CPT
+   
+=========================================================================*/
+
+function carawebs_school_intro() {
+    
+    // Variables
+            $date = get_field('date_started');
+            $size = get_field('size_of_school');
+            $contact = get_field('contact_person');
+            $testimonial = get_field('main_testimonial');
+            
+    // If $date, $ size or $contact have content, build an introblock
+        
+    // If all are empty, do nothing. If not, do something!
+    if (empty ($date) && empty ($size) && empty ($contact)) {
+                
+        return;
+                
+    } else {
+            
+    ?>
+    <div class="orangeback emphasis-text introblock"> 
+    <?php
+        // If the date is empty, do nothing
+        if(empty ($date)){
+            
+            } else { // If it's not empty, build the date
+            
+            ?><p>Date Started:&nbsp;<?php echo $date;
+            ?></p><?php
+            
+            } 
+
+        if(empty ($size)){
+            
+            } else {
+            
+            ?><p>Size of School:&nbsp;<?php echo $size;
+            ?></p><?php
+            
+            }
+
+        if(empty ($contact)){
+            
+            } else {
+            
+            ?><p>Contact Person:&nbsp;<?php echo $contact;
+            ?></p><?php
+            
+            }
+        ?>
+    </div><!-- /.introblock -->
+            
+    <?php
+            
+    }
+}
+
+
+/*=========================================================================
+
+Testimonial for School CPT
+
+==========================================================================*/
+
+function carawebs_school_testimonial () {
+
+    // If there is a testimonial, build it!
+    $testimonial = get_field('main_testimonial');
+    if(!empty($testimonial) ){
+         
+        ?>
+        <blockquote><i class="i-2x icon-quote-left"></i>&nbsp;&nbsp;
+        <?php echo $testimonial; ?>
+        <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>
+        </span>
+        </blockquote>
+        <?php
+            
+        } else {
+            
+            return;
+            
+        }
 }
