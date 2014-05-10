@@ -347,7 +347,7 @@ class Carawebs_Nav_Menu_Widget extends WP_Widget {
 		if ( !empty($instance['title']) )
 			echo $args['before_title'] . $instance['title'] . $args['after_title'];
 
-		wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'menu_class'=> 'i-ul', 'before'=>'<i class="icon-star-sharp i-li blue"></i>' ));
+		wp_nav_menu( array( 'fallback_cb' => '', 'menu' => $nav_menu, 'menu_class'=> 'i-ul', 'before'=>'<i class="icon-star-sharp i-li orange"></i>' ));
 
 		echo $args['after_widget'];
 	}
