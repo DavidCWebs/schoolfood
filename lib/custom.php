@@ -123,9 +123,12 @@ function carawebs_text_testimonials_loop(){
         'posts_per_page'         => '4',
         'meta_query'             => array(
             array(
-                'key'       => 'testimonial',
-                'value'     => 'true',
+                'key'       => 'testimonial_to_frontpage',
+                'value'     => '1',
                 'compare'   => '=',
+                //'key'       => 'testimonial',
+                //'value'     => 'true',
+                //'compare'   => '=',
             ),
         ),
     );
@@ -684,7 +687,7 @@ function carawebs_school_intro() {
             
             } else { // If it's not empty, build the date
             
-            ?><p>Date Started:&nbsp;<?php echo $date;
+            ?><p>Date School Food Started:&nbsp;<?php echo $date;
             ?></p><?php
             
             } 
@@ -728,7 +731,8 @@ function carawebs_school_testimonial () {
     if(!empty($testimonial) ){
          
         ?>
-        <blockquote><i class="i-2x icon-quote-left"></i>&nbsp;&nbsp;
+        <h3>What Our Clients Say</h3>
+        <blockquote><i class="icon-quote-left"></i>&nbsp;&nbsp;
         <?php echo $testimonial; ?>
         <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>
         </span>
