@@ -228,7 +228,7 @@
             <h2><?php the_field('section_three_heading'); ?></h2>
             <div class="emphasis-text"><?php the_field('section_three_text'); ?></div></div> 
             <div class="col-md-5 col-md-offset-1">
-            <?php carawebs_custom_image ('section_three_image'); ?>
+            <?php carawebs_custom_image ('section_three_image','','large'); ?>
             </div>
         </div>
     </div>
