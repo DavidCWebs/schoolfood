@@ -1,7 +1,6 @@
 <?php get_template_part('templates/page', 'header'); ?>
 <div class="row">
-    <div class="col-sm-12 col-md-8">
-        <h3>Intro to schools here - beneath the header</h3>
+    <div class="col-sm-12 col-md-10 emphasis-text">
         <?php the_field('schools_introduction', 'option'); ?>
     </div>
 </div>
