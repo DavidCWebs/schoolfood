@@ -164,12 +164,17 @@ function carawebs_text_testimonials_loop(){
     // Restore original Post Data
     wp_reset_postdata();
 }
+/*----------------------------------------
+|
+| Carawebs Mini Schools Loop
+|
+|-----------------------------------------*/
 
 function carawebs_mini_schools_loop(){
     // WP_Query arguments
     $args = array (
         'post_type'              => 'schools',
-        'posts_per_page'         => '4',
+        'posts_per_page'         => '3',
         'meta_query'             => array(
             array(
                 'key'       => 'testimonial',
