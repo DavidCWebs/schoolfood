@@ -104,7 +104,7 @@
                   <div class="overlay-container col-centered">
                      <?php
                      // The first circle
-                     $circle_1_heading = get_field('circle_1_heading');
+                     $circle_1_heading = get_field('circle_1_title');
                         
                      // If there's an heading, build it
                      if (!empty($circle_1_heading)) {
@@ -122,10 +122,7 @@
                      ?>
                         <div class="overlay-wrapper circle-redback">
                         <div class="overlay-excerpt">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, 
-                        eget consequat magna felis a magna. Even more information - difficult in a circular block.
-                        <br><a href="">Click here</a> for more info.</p>
+                        <p><?php the_field('circle_1_hover_text'); ?></p>
                         </div>
                         </div><!-- /.overlay-wrapper -->
                     </div>
@@ -135,7 +132,7 @@
                     
                     <?php
                      // The first circle
-                     $circle_2_heading = get_field('circle_2_heading');
+                     $circle_2_heading = get_field('circle_2_title');
                         
                      // If there's a heading, build it
                      if (!empty($circle_2_heading)) {
@@ -153,10 +150,7 @@
                      ?>
                          <div class="overlay-wrapper circle-blueback">
                             <div class="overlay-excerpt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, 
-                            eget consequat magna felis a magna. Even more information - difficult in a circular block.
-                            <br><a href="">Click here</a> for more info.</p>
+                            <p><?php the_field('circle_2_hover_text'); ?></p>
                             </div>
                          </div><!-- /.overlay-wrapper -->   
                     </div><!-- /.overlay-container -->    
@@ -165,7 +159,7 @@
                     <div class="overlay-container col-centered">
                     <?php
                      // The first circle
-                     $circle_3_heading = get_field('circle_3_heading');
+                     $circle_3_heading = get_field('circle_3_title');
                         
                      // If there's an heading, build it
                      if (!empty($circle_3_heading)) {
@@ -183,10 +177,7 @@
                      ?>
                      <div class="overlay-wrapper circle-greenback">
                             <div class="overlay-excerpt">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Vestibulum consequat, orci ac laoreet cursus, dolor sem luctus lorem, 
-                            eget consequat magna felis a magna. Even more information - difficult in a circular block.
-                            <br><a href="">Click here</a> for more info.</p>
+                            <p><?php the_field('circle_3_hover_text'); ?></p>
                             </div>
                      </div><!-- /.overlay-wrapper --> 
                      
