@@ -127,10 +127,7 @@ function carawebs_text_testimonials_loop(){
             array(
                 'key'       => 'testimonial_to_frontpage',
                 'value'     => '1',
-                'compare'   => '=',
-                //'key'       => 'testimonial',
-                //'value'     => 'true',
-                //'compare'   => '=',
+                'compare'   => '='
             ),
         ),
     );
