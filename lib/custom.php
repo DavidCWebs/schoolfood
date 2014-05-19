@@ -116,7 +116,7 @@ add_action('hook_after_post_images', 'carawebs_post_images');
 
 Testimonials Loop for content-frontpage.php
 
-============================================================================*/
+========================================================================*/
 
 function carawebs_text_testimonials_loop(){
     // WP_Query arguments
@@ -125,9 +125,12 @@ function carawebs_text_testimonials_loop(){
         'posts_per_page'         => '4',
         'meta_query'             => array(
             array(
-                'key'       => 'testimonial_to_frontpage',
+                //'key'       => 'testimonial',
+                //'value'     => 'true',
+                //'compare'   => '=',
+                'key'       => 'testimonial_on_front',
                 'value'     => '1',
-                'compare'   => '='
+                'compare'   => '=',
             ),
         ),
     );
@@ -163,6 +166,54 @@ function carawebs_text_testimonials_loop(){
     // Restore original Post Data
     wp_reset_postdata();
 }
+
+/*-----------------------------------------------------------------------------
+Testimonials Loop
+-----------------------------------------------------------------------------
+function carawebs_text_testimonials_loop(){
+    // WP_Query arguments
+    $args = array (
+        'post_type'              => 'schools',
+        'posts_per_page'         => '3',
+        'meta_query'             => array(
+            array(
+                'key'       => 'testimonial',
+                'value'     => 'true',
+                'compare'   => '=',
+            ),
+        ),
+    );
+
+    // The Query
+    $text_testimonials_query = new WP_Query( $args );
+
+    // The Loop
+    if ( $text_testimonials_query->have_posts() ) {
+        while ( $text_testimonials_query->have_posts() ) {
+            $text_testimonials_query->the_post();
+            
+            // do something
+            $testimonial = get_field('main_testimonial');
+            if(!empty($testimonial) ){
+            ?>
+            <blockquote><i class="i-2x icon-quote-left"></i>  
+                <?php echo $testimonial;?> 
+                <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>
+                <a href="#">More info</a></span></blockquote>
+            <?php
+            } else {
+            return;
+            }
+        }
+    } else {
+        // no posts found
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+}
+
+*/
 /*----------------------------------------
 |
 | Carawebs Mini Schools Loop
