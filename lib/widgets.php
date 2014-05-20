@@ -190,7 +190,7 @@ class carawebs_social_widget extends WP_Widget {
 								<li><a href="<?php echo $facebook; ?>"><i class="icon-facebook i-li"></i>&nbsp;Like us on Facebook</a></li>
 								<?php endif;
 								if (!empty($email)): ?>
-								<li><a href="mailto:<?php echo $email; ?>"><i class="icon-mail-1 i-li"></i>&nbsp;Send us an email</a></li>
+								<li><a href="mailto:<?php echo antispambot($email, 1); ?>"><i class="icon-mail-1 i-li"></i>&nbsp;Send us an email</a></li>
 								<?php endif; ?>
 							</ul>
               <?php echo $after_widget; ?>
