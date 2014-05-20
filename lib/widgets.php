@@ -49,9 +49,11 @@ function roots_widgets_init() {
 }
 add_action('widgets_init', 'roots_widgets_init');
 
-/**
+/* =================================================================================
+ 
  * Example vCard widget
- */
+ 
+ =================================================================================*/
 class Roots_Vcard_Widget extends WP_Widget {
   private $fields = array(
     'title'          => 'Title (optional)',
@@ -188,7 +190,7 @@ class carawebs_social_widget extends WP_Widget {
 								<li><a href="<?php echo $facebook; ?>"><i class="icon-facebook i-li"></i>&nbsp;Like us on Facebook</a></li>
 								<?php endif;
 								if (!empty($email)): ?>
-								<li><a href="<?php echo $email; ?>"><i class="icon-mail-1 i-li"></i>&nbsp;Send us an email</a></li>
+								<li><a href="mailto:<?php echo $email; ?>"><i class="icon-mail-1 i-li"></i>&nbsp;Send us an email</a></li>
 								<?php endif; ?>
 							</ul>
               <?php echo $after_widget; ?>
