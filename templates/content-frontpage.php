@@ -253,11 +253,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 column top-l-pad">
-                <h2>Our Schools</h2>
+                <h2><?php the_field ('schools_heading');?></h2>
                 <div class="emphasis-text bottom-l-pad">
-                    <p>We work closely with all our schools Donec 
-                    id elit non mi porta gravida at eget metus. 
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa </p>
+                    <?php the_field ('schools_intro_text')?>
                 </div>
                 <div id="grid">
                     <?php carawebs_mini_schools_loop(); ?>

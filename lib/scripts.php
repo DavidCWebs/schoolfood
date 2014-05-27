@@ -59,7 +59,7 @@ add_action('wp_head', 'roots_jquery_local_fallback');
 
 function cw_map_style() {
 	
-	// Run on the front page (static page) only
+	// Run on page 69 only
 	if (is_page('69')) {
 		echo '<style>#map_canvas { width: 100%; height: 548px; }</style>';
 	}
@@ -77,7 +77,7 @@ function carawebs_googlemaps_control(){
 	
 	if (is_page('69')) {
 	
-    // Register the control script - in a folder called js in the active Thesis skin
+    // Register the control script
     wp_register_script( 'carawebs_googlemap', get_template_directory_uri() . '/assets/js/vendor/google-map.js');
 	
 	// Enqueue the masonry controls - they will be built into the footer
