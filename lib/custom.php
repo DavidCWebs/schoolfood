@@ -151,7 +151,7 @@ function carawebs_text_testimonials_loop(){
                 <blockquote><i class="i-2x icon-quote-left"></i>&nbsp;&nbsp;
                 <?php echo $testimonial;?>
                 <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>, <?php
-                 the_title(); ?>
+                 the_title(); ?><br/>
                 <a href="<?php the_permalink(); ?>">More info</a></span></blockquote>
             </div>
             <?php
