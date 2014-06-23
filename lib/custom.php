@@ -150,9 +150,9 @@ function carawebs_text_testimonials_loop(){
             <div class="col-xs-12 col-md-3">
                 <blockquote><i class="i-2x icon-quote-left"></i>&nbsp;&nbsp;
                 <?php echo $testimonial;?>
-                <span class="person">- <?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>, <?php
+                <span class="person"><?php the_field('testimonial_person');?>, <?php the_field('person_title'); ?>, <?php
                  the_title(); ?><br/>
-                <a href="<?php the_permalink(); ?>">More info</a></span></blockquote>
+                <a href="<?php the_permalink(); ?>">More info&nbsp;&raquo;</a></span></blockquote>
             </div>
             <?php
             } else {
